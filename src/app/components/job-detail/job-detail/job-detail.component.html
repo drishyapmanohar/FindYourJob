@@ -1,0 +1,23 @@
+<div *ngIf="job">
+    <div class="job-details-container">
+        <a href="#" class="back-link"><i class="fa fa-home"></i>&nbsp;Back</a>
+        <div class="job-header">
+          <img [src]="job.companyLogo" alt="{{ job.companyName }}" class="company-logo">
+          <div class="job-title">
+            <h1>{{ job.companyName }} - {{ job.title }}</h1>
+            <div class="tags">
+              <span class="tag" *ngFor="let type of job.types"  [innerHTML]="type">{{ type }}</span>
+              <span class="tag" *ngFor="let industry of job.industries" [innerHTML]="industry"></span>
+            </div>
+          </div>
+        </div>
+        <div class="job-meta">
+          <p><strong>Publish date:</strong> {{ job.publishDate }}</p>
+          <p><strong>Location:</strong> {{ job.location }}</p>
+          <p><strong>Reference:</strong> {{ job.reference }}</p>
+        </div>
+        <div class="job-description">
+          <h2>Description:</h2>
+          <div [innerHTML]="job.description"></div>
+        </div>
+  </div>

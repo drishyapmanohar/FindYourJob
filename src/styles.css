@@ -1,0 +1,62 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/mini.css/dist/mini-dark.min.css";
+
+/**
+ * <span class="icon-star"></span>
+ * <span class="icon-star" style="color: red"></span>
+ */
+span.icon-star {
+    background-image: unset;
+    background-color: currentColor;
+    mask-size: cover;
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fdfdfd' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'%3E%3C/polygon%3E%3C/svg%3E");
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+h1 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.job-list {
+    list-style: none;
+    padding: 0;
+}
+.job-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+.job-item:last-child {
+    border-bottom: none;
+}
+.job-logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+}
+.job-details {
+    flex-grow: 1;
+}
+.job-details .company,
+.job-details .reference {
+    font-size: 12px;
+    color: #888;
+}
+.job-details .position {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+}

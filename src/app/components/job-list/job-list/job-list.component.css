@@ -1,0 +1,14 @@
+
+.icon-star {
+  color: #000; /* Default color for star icon */
+  cursor: pointer;
+}
+
+.fa {
+    margin-right: 4%;
+}
+.active {
+        color: yellow;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: #000;
+}
