@@ -23,7 +23,6 @@ export class JobDetailComponent {
     this.jobService.getJobDetails(jobId).subscribe(
       (data) => {
         this.job = data;
-        console.log(this.job)
       },
       (error) => {
         console.error('Error fetching job details:', error);
