@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observer } from 'rxjs';
 import { JobService } from '../../../services/job.service';
 import { NgIf, NgFor } from '@angular/common';
-import { Job } from '../../../model/job.model'; 
+import { Job } from '../../../model/job.model';
 
 @Component({
   selector: 'app-job-detail',
@@ -20,16 +21,15 @@ export class JobDetailComponent {
   ngOnInit(): void {
     // Get jobId from route parameters
     const jobId = this.route.snapshot.params['jobId'];
-    // Fetch job details from service
-    this.jobService.getJobDetails(jobId).subscribe(
-      (data) => {
-        this.job = data;
-        console.log(this.job)
-      },
-      (error) => {
-        console.error('Error fetching job details:', error);
-      }
-    );
+    this.getJobDetails(jobId);
   }
+  getJobDetails(jobId: number): void {
+    const jobObserver: Observer<Job> = {
+      next: data => this.job = data,
+      error: err => console.error('Error: ', err),
+      complete: () => console.log('Retrieval complete')
 
+    };
+    this.jobService.getJobDetails(jobId).subscribe(jobObserver);
+  }
 }

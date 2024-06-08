@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { JobService } from '../../../services/job.service';
 import { RouterModule } from '@angular/router';
 import { NgFor, NgClass } from '@angular/common';
-import { Job } from '../../../model/job.model'; 
+import { Job } from '../../../model/job.model';
 
 @Component({
   selector: 'app-job-list',
@@ -11,22 +11,22 @@ import { Job } from '../../../model/job.model';
   templateUrl: './job-list.component.html',
   styleUrl: './job-list.component.css'
 })
-export class JobListComponent implements OnInit{
+export class JobListComponent implements OnInit {
   jobs: Job[] = [];
-  favorites: number[] = []; 
+  favorites: number[] = [];
 
-  constructor(private JobService: JobService) {}
+  constructor(private JobService: JobService) { }
 
   ngOnInit(): void {
     this.JobService.getAllJobs().subscribe((data: Job[]) => {
       this.jobs = data;
     });
 
-     // Retrieve favorites from local storage on component initialization
-     const storedFavorites = localStorage.getItem('favorites');
-     if (storedFavorites) {
-       this.favorites = JSON.parse(storedFavorites);
-     }
+    // Retrieve favorites from local storage on component initialization
+    const storedFavorites = localStorage.getItem('favorites');
+    if (storedFavorites) {
+      this.favorites = JSON.parse(storedFavorites);
+    }
   }
   toggleFavorite(jobId: number): void {
     const index = this.favorites.indexOf(jobId);
@@ -39,9 +39,8 @@ export class JobListComponent implements OnInit{
     }
     // Save updated favorites to local storage
     localStorage.setItem('favorites', JSON.stringify(this.favorites));
-    
-  }
 
+  }
   isFavorite(jobId: number): boolean {
     // Check if job is in favorites list
     return this.favorites.includes(jobId);
