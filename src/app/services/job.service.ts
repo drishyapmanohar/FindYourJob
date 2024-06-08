@@ -10,7 +10,10 @@ export class JobService {
   private apiUrl = environment.apiUrl; 
 
  
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    console.log(this.apiUrl)
+    
+  }
 
   //All jobs API
   getAllJobs(): Observable<[]> {
