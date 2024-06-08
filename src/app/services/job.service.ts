@@ -17,6 +17,8 @@ export class JobService {
 
   //All jobs API
   getAllJobs(): Observable<[]> {
+    console.log('Environment:', environment); // Debug log
+    console.log('API URL:', this.apiUrl); // Debug log
     console.log(this.apiUrl)
     return this.http.get<[]>(`${this.apiUrl}/jobs`);
   }
