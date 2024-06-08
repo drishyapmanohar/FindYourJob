@@ -5,9 +5,11 @@
     <li *ngFor="let favorite of favoriteJobs" class="job-item">
         <img [src]="favorite.companyLogo" alt="{{ favorite.companyName }}" class="job-logo">
         <div class="job-details">
-            <div class="position">{{ favorite.title }}</div>
-            <div class="company">Company: {{ favorite.companyName }}</div>
-            <div class="reference">Reference: {{ favorite.reference }}</div>
+            <a [routerLink]="['/jobs', favorite.id]"> <span class="position">{{ favorite.title }}</span></a>
+            <div>
+                <span class="company">Company: {{ favorite.companyName }}</span>&nbsp;
+                <span class="reference">Reference: {{ favorite.reference }}</span>
+            </div>
         </div>
     </li>
 </ul>
