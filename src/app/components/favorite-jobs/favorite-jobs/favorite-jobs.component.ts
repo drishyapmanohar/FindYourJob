@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { JobService } from '../../../services/job.service';
 import { NgFor, NgIf } from '@angular/common';
+import { Job } from '../../../model/job.model'; 
 
 @Component({
   selector: 'app-favorite-jobs',
@@ -10,7 +11,7 @@ import { NgFor, NgIf } from '@angular/common';
   styleUrl: './favorite-jobs.component.css'
 })
 export class FavoriteJobsComponent {
-  favoriteJobs: any[] = [];
+  favoriteJobs: Job[] = [];
 
   constructor(private jobService: JobService) {}
 
@@ -18,7 +19,7 @@ export class FavoriteJobsComponent {
       // Retrieve favorite job IDs from local storage
       const favoriteJobIds = JSON.parse(localStorage.getItem('favorites') || '[]');
       // Fetch all jobs
-      this.jobService.getAllJobs().subscribe((jobs: any[]) =>  {
+      this.jobService.getAllJobs().subscribe((jobs: Job[]) =>  {
         // Filter jobs to get favorite jobs
         this.favoriteJobs = jobs.filter(job=>favoriteJobIds.includes(job.id));
       });

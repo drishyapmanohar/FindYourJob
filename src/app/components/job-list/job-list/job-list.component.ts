@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { JobService } from '../../../services/job.service';
 import { RouterModule } from '@angular/router';
 import { NgFor, NgClass } from '@angular/common';
+import { Job } from '../../../model/job.model'; 
 
 @Component({
   selector: 'app-job-list',
@@ -11,13 +12,13 @@ import { NgFor, NgClass } from '@angular/common';
   styleUrl: './job-list.component.css'
 })
 export class JobListComponent implements OnInit{
-  jobs: any[] = [];
-  favorites: number[] = []; // Array to store favorite job IDs
+  jobs: Job[] = [];
+  favorites: number[] = []; 
 
   constructor(private JobService: JobService) {}
 
   ngOnInit(): void {
-    this.JobService.getAllJobs().subscribe((data: any) => {
+    this.JobService.getAllJobs().subscribe((data: Job[]) => {
       this.jobs = data;
     });
 
