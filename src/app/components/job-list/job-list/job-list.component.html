@@ -8,7 +8,7 @@
                     <span class="reference">Reference: {{ job.reference }}</span>
                 </div>
             </div>
-            <i class="fa" 
+            <i class="fa" id="star-{jobId}"
             [ngClass]="isFavorite(job.id) ? 'fa-star active' : 'fa-star-o icon-star'"
             (click)="toggleFavorite(job.id)"></i>
         </li>
